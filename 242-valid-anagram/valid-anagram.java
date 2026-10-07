@@ -1,0 +1,31 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        Map<Character,Integer>hm1=new HashMap<>();
+        Map<Character,Integer>hm2=new HashMap<>();
+        boolean ans= true;
+        if (s.length()!=t.length())
+        {
+            return false;
+        }
+        else
+        {
+        for(int i=0;i<s.length();i++)
+        {
+            hm1.put(s.charAt(i),hm1.getOrDefault(s.charAt(i),0)+1);
+        }
+         for(int i=0;i<t.length();i++)
+        {
+            hm2.put(t.charAt(i),hm2.getOrDefault(t.charAt(i),0)+1);
+        }
+        for(int i=0;i<s.length();i++)
+        {
+            if( !hm1.get(s.charAt(i)).equals (hm2.get(s.charAt(i))))
+            {
+                ans=false;
+                break;
+            }
+        }
+        return ans;
+        }
+    }
+}
